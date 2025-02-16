@@ -1,3 +1,5 @@
+from django.templatetags.static import static
+
 from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -17,8 +19,10 @@ class ConfigureExotic(APIView):
     def get(self, request):
         print("hi")
 
-        sorted_files = []
-        verified_filepath = ""
+        sorted_files = sorted(os.listdir(static("CoRoT-2b_20240807_medium")))
+        verified_filepath = static("CoRoT-2b_20240807_medium")
+
+        # CoRoT-2240807035200.FITS
 
         # Directory full of files found, look for .fits and inits.json
         uploaded_files = [f for f in sorted_files if os.path.isfile(os.path.join(verified_filepath, f))]
@@ -55,6 +59,7 @@ class ConfigureExotic(APIView):
             input_filepath = input('Enter path to .FITS images in Google Drive (e.g. "EXOTIC/HatP32Dec202017") and press return:  ')
 
         # Read configuration from inits.json, if available
+        inits_file_path = ""
         if inits_count == 1:                 # one inits file exists
         # Deal with inits.json file
             inits_file_path = os.path.join(verified_filepath, inits[0])
@@ -77,3 +82,4 @@ class ConfigureExotic(APIView):
             inits_file_exists = False
 
         return Response(status=status.HTTP_200_OK)
+    
