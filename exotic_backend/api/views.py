@@ -29,13 +29,16 @@ from astropy.io import fits
 from astropy.visualization import ZScaleInterval, ImageNormalize
 from io import BytesIO
 
+API_STATIC = "exotic_backend/api/static/"
+PUBLIC_STATIC = "/static/"
+
 class CoordsInput(APIView):
     def get(self, request):
         convert_fits_to_png = True
         main_run = False
 
-        sorted_files = sorted(os.listdir("exotic_backend/api/static/TRES-3b_20100911"))
-        verified_filepath = "exotic_backend/api/static/TRES-3b_20100911"
+        sorted_files = sorted(os.listdir(f"{API_STATIC}TRES-3b_20100911"))
+        verified_filepath = f"{API_STATIC}TRES-3b_20100911"
         output_dir = verified_filepath + "_output/"
 
         def get_folders_names(directory):
@@ -45,11 +48,11 @@ class CoordsInput(APIView):
             return folders
 
         if convert_fits_to_png:
-            names = get_folders_names("exotic_backend/api/static/")
+            names = get_folders_names(API_STATIC)
             # names = ["CoRoT-2b_20240807_medium"]
             for name in names:
-                filepath = f"exotic_backend/api/static/{name}"
-                sorted_files_g = sorted(os.listdir(f"exotic_backend/api/static/{name}"))
+                filepath = f"{API_STATIC}{name}"
+                sorted_files_g = sorted(os.listdir(f"{API_STATIC}{name}"))
                 uploaded_files = [f for f in sorted_files_g if os.path.isfile(os.path.join(filepath, f))]
 
                 fits_list = []
@@ -369,7 +372,7 @@ class Images(APIView):
 
         def middle_image(directory):
             # List all subdirectories in the given directory
-            subfolders = [folder for folder in os.listdir(directory) if os.path.isdir(os.path.join(directory, folder)) and folder.endswith('_output')]
+            subfolders = [folder for folder in os.listdir(directory) if (os.path.isdir(os.path.join(directory, folder)) and folder.endswith('_output'))]
             
             if not subfolders:
                 return None  # If there are no subdirectories, return None
@@ -417,7 +420,7 @@ class Images(APIView):
                 image_uri = starchart_data["image_uri"].split('?')[0]
                 return(image_uri)
 
-        img, folder_name = middle_image("exotic_backend/api/static/")
+        img, folder_name = middle_image(API_STATIC)
 
         Star = folder_name.split("/")[3].split('b')[0] #@param {type:"string"}
         Target = Star.strip()
@@ -426,4 +429,4 @@ class Images(APIView):
         # Generate the starchart image url
         starchart_image_url = get_star_chart_image_url(starchart_urls[0])
 
-        return Response(status=status.HTTP_200_OK, data={"img": {img}, "starchart": str(starchart_image_url)})
+        return Response(status=status.HTTP_200_OK, data={"img": f"{folder_name.replace(API_STATIC, PUBLIC_STATIC)}/{img}", "starchart": str(starchart_image_url)})
