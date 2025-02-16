@@ -172,3 +172,55 @@ class ConfigureExotic(APIView):
                             success = True
 
                     inits_file_path = make_inits_file(planetary_params, verified_filepath, output_dir, first_image, targ_coords, comp_coords, obs, aavso_obs_code, sec_obs_code, sample_data)
+
+    if 'inits_file_path' in globals():
+
+        sample_data = False
+
+        print("Path to the inits file(s) that will be used: " + inits_file_path)
+
+        commands = []
+        with open(inits_file_path) as i_file:
+            inits_data = i_file.read()
+            d = json.loads(inits_data)
+            date_obs = d["user_info"]["Observation date"]
+            planet = d["planetary_parameters"]["Planet Name"]
+            output_dir = d["user_info"]["Directory to Save Plots"]
+            if not os.path.isdir(output_dir):
+                os.makedirs(output_dir)
+            inits_file_for_shell = inits_file_path.replace(" ", "\\ ")
+            run_exotic = str(f"exotic -red {inits_file_for_shell} -ov")
+            debug_exotic_run = str(f"!exotic -red \"{inits_file_path}\" -ov")
+
+            commands.append({"inits_file_for_shell": inits_file_for_shell, "output_dir": output_dir,
+                            "planet": planet, "date_obs": date_obs,
+                            "run_exotic": run_exotic, "debug_exotic_run": debug_exotic_run
+                            })
+            print(f"{debug_exotic_run}")
+            #!eval "$run_exotic"
+            os.system(run_exotic)
+
+            file_for_submission = os.path.join(output_dir,"AAVSO_"+planet+"_"+date_obs+".txt")
+            lightcurve = os.path.join(output_dir,"FinalLightCurve_"+planet+"_"+date_obs+".png")
+            fov = os.path.join(output_dir,"temp/FOV_"+planet+"_"+date_obs+"_LinearStretch.png")
+            triangle = os.path.join(output_dir,"temp/Triangle_"+planet+"_"+date_obs+".png")
+
+            print(f"aavso output: {file_for_submission}\nlightcurve: {lightcurve}\nfov: {fov}\ntriangle: {triangle}")
+
+            if not (os.path.isfile(lightcurve) and os.path.isfile(fov) and os.path.isfile(triangle)):
+                print(f"Something went wrong with {planet} {date_obs}.\nCopy the command below into a new cell and run to find the error:\n{debug_exotic_run}\n")
+
+            # imageA = widgets.Image(value=open(lightcurve, 'rb').read())
+            # imageB = widgets.Image(value=open(fov, 'rb').read())
+            # hbox = HBox([imageB, imageA])
+            # display(hbox)
+            # display(Image(filename=triangle))
+
+        # Allow download of lightcurve data
+        def on_dl_button_clicked(b):
+            # Display the message within the output widget.
+            if os.path.isfile(file_for_submission):
+                files.download(file_for_submission)
+
+        dl_button = widgets.Button(description="Download data")
+        dl_button.on_click(on_dl_button_clicked)
