@@ -21,11 +21,11 @@ from django.conf.urls.static import static
 
 from rest_framework import routers
 
-from exotic_backend.api.views import ConfigureExotic
+from exotic_backend.api.views import CoordsInput
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('api/configure', ConfigureExotic.as_view()),
+    path('api/configure', CoordsInput.as_view()),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])

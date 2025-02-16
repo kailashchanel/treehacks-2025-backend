@@ -1,0 +1,60 @@
+
+{
+  "planetary_parameters": {
+    "Target Star RA": "17:52:06.986544",
+    "Target Star Dec": "+37:32:46.77648",
+    "Planet Name": "TrES-3 b",
+    "Host Star Name": "TrES-3",
+    "Orbital Period (days)": 1.30618635,
+    "Orbital Period Uncertainty": 4e-08,
+    "Published Mid-Transit Time (BJD-UTC)": 2457585.914587,
+    "Mid-Transit Time Uncertainty": 2.2e-05,
+    "Ratio of Planet to Stellar Radius (Rp/Rs)": 0.1573095038451269,
+    "Ratio of Planet to Stellar Radius (Rp/Rs) Uncertainty": 0.00046306801699480776,
+    "Ratio of Distance to Stellar Radius (a/Rs)": 6.0,
+    "Ratio of Distance to Stellar Radius (a/Rs) Uncertainty": 0.7483314773547882,
+    "Orbital Inclination (deg)": 82.0,
+    "Orbital Inclination (deg) Uncertainty": 0.3,
+    "Orbital Eccentricity (0 if null)": 0.043,
+    "Argument of Periastron (deg)": 270.5,
+    "Star Effective Temperature (K)": 5650.0,
+    "Star Effective Temperature (+) Uncertainty": 75.0,
+    "Star Effective Temperature (-) Uncertainty": -75.0,
+    "Star Metallicity ([FE/H])": -0.19,
+    "Star Metallicity (+) Uncertainty": 0.08,
+    "Star Metallicity (-) Uncertainty": -0.08,
+    "Star Surface Gravity (log(g))": 4.58,
+    "Star Surface Gravity (+) Uncertainty": 0.02,
+    "Star Surface Gravity (-) Uncertainty": -0.01
+},
+    "user_info": {
+            "Directory with FITS files": "/content/drive/My Drive/TRES-3b-20170418",
+            "Directory to Save Plots": "/content/drive/My Drive/TRES-3b-20170418_output/",
+            "Directory of Flats": null,
+            "Directory of Darks": "/content/drive/My Drive/TRES-3b-20170418/darks",
+            "Directory of Biases": null,
+
+            "AAVSO Observer Code (N/A if none)": "NJED",
+            "Secondary Observer Codes (N/A if none)": "MOBS",
+
+            "Observation date": "2017-04-18",
+            "Obs. Latitude": "+37.04",
+            "Obs. Longitude": "-110.73",
+            "Obs. Elevation (meters)": 2606,
+            "Camera Type (CCD or DSLR)": "CCD",
+            "Pixel Binning": "1x1",
+            "Filter Name (aavso.org/filters)": "V",
+            "Observing Notes": "First image seeing 99 (0: poor, 100: excellent), Teltemp - Camtemp 21.0.  These observations were conducted with MicroObservatory, a robotic telescope network managed by the Harvard-Smithsonian Center for Astrophysics on behalf of NASA's Universe of Learning. This work is supported by NASA under award number NNX16AC65A to the Space Telescope Science Institute.",
+
+            "Plate Solution? (y/n)": "y",
+            "Align Images? (y/n)": "y",
+
+            "Target Star X & Y Pixel": [183,206],
+            "Comparison Star(s) X & Y Pixel": [[189,212],[167,212],[142,187],[239,175]]
+    },    
+    "optional_info": {
+            "Pixel Scale (Ex: 5.21 arcsecs/pixel)": null,
+            "Filter Minimum Wavelength (nm)": null,
+            "Filter Maximum Wavelength (nm)": null
+    }
+}

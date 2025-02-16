@@ -1,0 +1,69 @@
+{
+    "planetary_parameters": {
+        "Target Star RA": "17:52:06.986544",
+        "Target Star Dec": "+37:32:46.77648",
+        "Planet Name": "TrES-3 b",
+        "Host Star Name": "TrES-3",
+        "Orbital Period (days)": 1.30618635,
+        "Orbital Period Uncertainty": 4e-08,
+        "Published Mid-Transit Time (BJD-UTC)": 2457585.914587,
+        "Mid-Transit Time Uncertainty": 2.2e-05,
+        "Ratio of Planet to Stellar Radius (Rp/Rs)": 0.1573095038451269,
+        "Ratio of Planet to Stellar Radius (Rp/Rs) Uncertainty": 0.00046306801699480776,
+        "Ratio of Distance to Stellar Radius (a/Rs)": 6.0,
+        "Ratio of Distance to Stellar Radius (a/Rs) Uncertainty": 0.7483314773547882,
+        "Orbital Inclination (deg)": 82.0,
+        "Orbital Inclination (deg) Uncertainty": 0.3,
+        "Orbital Eccentricity (0 if null)": 0.043,
+        "Argument of Periastron (deg)": 270.5,
+        "Star Effective Temperature (K)": 5650.0,
+        "Star Effective Temperature (+) Uncertainty": 75.0,
+        "Star Effective Temperature (-) Uncertainty": -75.0,
+        "Star Metallicity ([FE/H])": -0.19,
+        "Star Metallicity (+) Uncertainty": 0.08,
+        "Star Metallicity (-) Uncertainty": -0.08,
+        "Star Surface Gravity (log(g))": 4.58,
+        "Star Surface Gravity (+) Uncertainty": 0.02,
+        "Star Surface Gravity (-) Uncertainty": -0.01,
+        "Star Distance (pc)": 231.337,
+        "Star Proper Motion RA (mas/yr)": -24.5292,
+        "Star Proper Motion DEC (mas/yr)": 34.8088
+    },
+    "user_info": {
+        "Directory with FITS files": "exotic_backend/api/static/TRES-3b_20100911",
+        "Directory to Save Plots": "exotic_backend/api/static/TRES-3b_20100911_output/",
+        "Directory of Flats": null,
+        "Directory of Darks": "exotic_backend/api/static/TRES-3b_20100911/darks",
+        "Directory of Biases": null,
+        "AAVSO Observer Code (N/A if none)": "N/A",
+        "Secondary Observer Codes (N/A if none)": "N/A",
+        "Observation date": "2010-09-11",
+        "Camera Type (CCD or DSLR)": "CCD",
+        "Pixel Binning": "1x1",
+        "Filter Name (aavso.org/filters)": "V",
+        "Observing Notes": "These observations were conducted with MicroObservatory, a robotic telescope network managed by the Harvard-Smithsonian Center for Astrophysics on behalf of NASA's Universe of Learning. This work is supported by NASA under award number NNX16AC65A to the Space Telescope Science Institute.",
+        "Plate Solution? (y/n)": "y",
+        "Add Comparison Stars from AAVSO? (y/n)": "y",
+        "Target Star X & Y Pixel": [
+            245,
+            190
+        ],
+        "Comparison Star(s) X & Y Pixel": [
+            [
+                228,
+                198
+            ],
+            [
+                203,
+                174
+            ]
+        ],
+        "Demosaic Format": null,
+        "Demosaic Output": null
+    },
+    "optional_info": {
+        "Pixel Scale (Ex: 5.21 arcsecs/pixel)": null,
+        "Filter Minimum Wavelength (nm)": null,
+        "Filter Maximum Wavelength (nm)": null
+    }
+}
