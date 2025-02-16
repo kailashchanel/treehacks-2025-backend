@@ -1,0 +1,16 @@
+{
+    "FINAL PLANETARY PARAMETERS": {
+        "Mid-Transit Time (Tmid)": "2457862.82708 +/- 0.00062 BJD_TDB",
+        "Ratio of Planet to Stellar Radius (Rp/R*)": "0.196 +/- 0.018",
+        "Transit depth (Rp/Rs)^2": "3.85 +/- 0.7 [%]",
+        "Orbital Inclination (inc)": "82.27 +/- 0.75 ",
+        "Airmass coefficient 1 (a1)": "1.165 +/- 0.019",
+        "Airmass coefficient 2 (a2)": "-0.1256 +/- 0.0044",
+        "Scatter in the residuals of the lightcurve fit is": "1.65 %",
+        "Variable Reference Star": "AAVSO Label: 000-BJP-985, Position: [38, 356]",
+        "Best Comparison Star": "None",
+        "Optimal Aperture": "4.39",
+        "Optimal Annulus": "13.43",
+        "Transit Duration (day)": "0.0619 +/- 0.0063"
+    }
+}
